@@ -1,0 +1,111 @@
+\documentclass[a5paper,12pt]{article}
+
+%\usepackage{extsizes}                  % Возможность сделать 14-й шрифт
+
+%%% Программирование
+\usepackage{etoolbox}                  % Логические операторы
+\usepackage{iftex}                     % Определение компилятора
+
+%%% Гиперссылки
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{
+    unicode=true,                      % Русские буквы в раздела PDF
+    pdftitle={Заголовок},              % Заголовок
+    pdfauthor={Автор},                 % Автор
+    pdfsubject={Тема},                 % Тема
+    pdfcreator={Создатель},            % Создатель
+    pdfproducer={Производитель},       % Производитель
+    pdfkeywords={keyword1} {keyword2}, % Ключевые слова
+    colorlinks=true,                   % false: ссылки в рамках; true: цветные ссылки
+    linkcolor=red,                     % Внутренние ссылки
+    citecolor=green,                   % На библиографию
+    filecolor=magenta,                 % На файлы
+    urlcolor=blue                      % На URL
+}
+
+%%% Работа с русским языком
+\usepackage[english,russian]{babel}        % Пакет многоязыковой вёрстки
+\ifXeTeX
+    % У вас должны быть установлены CMU шрифты!
+    \usepackage{fontspec}                      % Загрузка шрифтов Open Type, True Type и др.
+    \defaultfontfeatures{Ligatures={TeX},      %
+        Renderer=Basic}                        % Свойства шрифтов по умолчанию
+    \setmainfont[Ligatures={TeX,Historic}]     %
+    {CMU Serif}                                % Основной шрифт документа
+    \setsansfont{Times New Roman}              % Шрифт без засечек
+    \setmonofont{CMU Typewriter Text}          % Моноширинный шрифт}
+\else
+    \RequirePDFTeX
+    \usepackage{cmap}                      % Поиск в PDF
+    \usepackage{mathtext}                  % Русские буквы в формулах
+    \usepackage[T2A]{fontenc}              % Кодировка
+    \usepackage[utf8]{inputenc}            % Кодировка исходного текста
+\fi
+\usepackage{csquotes}
+\usepackage{indentfirst}               % Красная строка для первого абзаца
+\usepackage{parskip}
+\setlength{\parindent}{0ex}            % Убрать красную строку
+\frenchspacing
+
+%%% Шрифты
+\usepackage{euscript}                        % Шрифт Евклид
+\usepackage{mathrsfs}                        % Красивый матшрифт
+\usepackage{textcomp}                        % Symbols like copyright, degree
+\usepackage{soul}                            % Модификаторы начертания
+%\renewcommand{\familydefault}{\sfdefault}   % Шрифт без засечек
+
+%%% Страница
+\usepackage{multicol}                  % Несколько колонок
+\usepackage{geometry}                  % Простой способ задавать поля
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+\geometry{left=10mm}
+\geometry{right=10mm}
+
+%%% Колонтитулы
+\usepackage{lastpage}                  % Число страниц в документе
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0mm}     % Толщина линейки, отчеркивающей верхний колонтитул
+\lfoot{}
+\rfoot{}
+\rhead{}
+\chead{}
+\lhead{}
+%\cfoot{Нижний в центре}               % По умолчанию здесь номер страницы
+
+%%% Интерлиньяж
+\usepackage{setspace}
+%\singlespacing                        % Интерлиньяж 1
+%\onehalfspacing                       % Интерлиньяж 1.5
+%\doublespacing                        % Интерлиньяж 2
+
+%%% Работа с картинками
+\usepackage{graphicx}                  % Для вставки рисунков
+\usepackage{wrapfig}                   % Обтекание рисунков и таблиц текстом
+\usepackage{epstopdf}                  % Конвертер
+\graphicspath{{Images/}}               % Папки с картинками
+\setlength\fboxsep{3pt}                % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt}               % Толщина линий рамки \fbox{}
+
+%%% Работа с таблицами
+\usepackage{array,booktabs}            % Дополнительная работа с таблицами
+\usepackage{tabularx,tabulary}         % Таблицы, выровененные по ширине или высоте
+\usepackage{longtable}                 % Длинные таблицы
+\usepackage{multirow}                  % Слияние строк в таблице
+
+%%% Работа с графикой
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{pgfplotstable}
+
+%\mathtoolsset{showonlyrefs=true}      % Показывать номера только у формул со сслыкой \eqref{} в тексте.
+%\usepackage{leqno}                    % Нумерация формул слева
+
+%%% Прочее
+\usepackage{enumitem}
+%\usepackage{todonotes}
+\usepackage{science/science}

@@ -1,0 +1,585 @@
+\section{Группы}
+\subsection{Группы и подгруппы}
+
+\begin{definition}
+  \emph{Группой} $G$ называется множество, замкнутое относительно некоторой бинарной операции $\cdotp$, со следующими свойствами:
+  \begin{enumerate}
+    \item $\A{a,b,c \in G}\qty(ab)c=a\qty(bc)$
+    \item $\E{e\in G}\A{a \in G} ae=ea=a$
+    \item $\A{a\in G}\E{a^{-1}\in G} aa^{-1}=a^{-1} a=e$
+    \item d
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+  \theoremlistshack
+  \begin{enumerate}
+    \item $\E{!e}$
+    \item $\A{a}\E{!a^{-1}}$
+    \item $ab=ac \thus b=c$
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{enumerate}
+    \item $e_1=e_1e_2=e_2$
+    \item $aa^{-1}_1=aa^{-1}_2 \thus a^{-1}_1aa^{-1}_1=a^{-1}_1aa^{-1}_2\thus a^{-1}_1=a^{-1}_2$
+  \end{enumerate}
+\end{proof}
+
+\begin{definition}
+  Группа называется \emph{абелевой} или \emph{коммутативной}, если $\cdotp$ в ней коммутативно.
+\end{definition}
+
+\begin{definition}
+  \emph{Подгруппой} называется непустое подмножество группы, которое является группой относительно той же операции. Обозначается $H \subgr G$.
+\end{definition}
+
+\begin{definition}
+  \emph{Порядок группы} --- это мощность его множества ее элементов.
+\end{definition}
+
+\begin{definition}
+  \emph{Порядок элемента} $g$ --- это наименьшее $n \in \N \suchthat g^n=e$. Если такого нет, то порядок бесконечен. Обозначается $\ord g$.
+\end{definition}
+
+\begin{examples}
+  Абелевы группы:
+  \begin{enumerate}
+    \item $\qty(\Z, +), \qty(\Z_n, +)$ --- целые числа и остатки. Коротко обозначается \Z и $\Z_n$, т.\:к. операция очевидна
+    \item $\qty(F, +), \qty(F\setminus\{0\}, \cdotp)$, где $F$ --- поле
+    \item $\qty(V, +)$, где $V$ --- линейное пространство над полем $F$
+  \end{enumerate}
+
+  Неабелевы группы:
+  \begin{enumerate}[resume]
+    \item $GL_n(F)$ --- невырожденные матрицы над полем $F$, операция --- умножение
+    \item $S_n$ --- перестановки на $n$ элементах, операция --- композиция
+  \end{enumerate}
+
+  Подгруппы в известных группах:
+  \begin{enumerate}[resume]
+    \item $\C^\ast \rsubgr \set{z}{\abs{z}=1}$
+    \item $GL_n(F) \rsubgr SL_n(F)$ --- подгруппа матриц с единичным определителем
+    \item $GL_n(\R) \rsubgr O_n$ --- подгруппа ортогональных матриц, в частности, $O_2$ --- ортогональные преобразования $\R^2$
+    \item $O_2 \rsubgr D_n$ --- группа Диэдра: переводит правильный n-угольник (из $\R^2$) с центром в нуле в себя.
+    \item $GL_n(\C) \rsubgr U_n$ --- подгруппа унитарных матриц
+  \end{enumerate}
+\end{examples}
+
+
+\begin{definition}
+  Пусть $G$ --- группа, $A,B\sse G, a\in B$. Тогда,
+  \begin{align*}
+    AB     & \eqdef \set{ab}{a\in A, b \in B} \\
+    aB     & \eqdef \set{ab}{b \in B}         \\
+    A^{-1} & \eqdef \set{a^{-1}}{a \in A}
+  \end{align*}
+\end{definition}
+
+Можно заметить, что если $H\sse G$, то $H$ --- подгруппа, если $HH\sse H$ и $H^{-1}\sse H$
+
+\begin{definition}
+  Группы $G$ и $H$ называются \emph{изоморфными}, если между их элементами существует биекция \func{\phi}{G}{H}, такая что $\A{a,b \in G} \phi(ab)=\phi(a)\phi(b)$
+\end{definition}
+
+\begin{theorem}[Кэли]
+  Группа из конечного числа элементов $n$ изоморфна некоторой подгруппе в $S_n$
+\end{theorem}
+\begin{proof}
+  Достаточно рассмотреть отображение между элементами $g$ и перестановками, которые они порождают домножением слева: $G \mapsto gG$, и убедиться что это изоморфизм.
+\end{proof}
+
+\begin{definition}
+  \emph{Подгруппой, порожденной подмножеством $M\sse G$} называется пересечение всех подгрупп группы $G$, которые содержат это множество:
+  \[\aqty{M}\eqdef \Intxn_{\substack{H\subgr G \\ M\sse H}}H\]
+\end{definition}
+
+\begin{theorem}
+  $\aqty{M}$ является множеством всевозможных произведений собственных элементов и их обратных.
+\end{theorem}
+
+\begin{definition}
+  Группа называется \emph{цикилической}, если она порождена одним своим элементом
+\end{definition}
+
+\begin{theorem}
+  \theoremlistshack
+  \begin{enumerate}
+    \item Циклическая группа изоморфна \Z, либо $\Z_n$
+    \item Подгруппа циклической группы --- циклическая
+    \item $\ord g = \abs{\aqty{g}}$
+  \end{enumerate}
+\end{theorem}
+
+
+
+\subsection{Смежные классы}
+
+\begin{definition}
+  Пусть $G$ - группа, $H \subgr G, g \in G$. Тогда, множество $gH$ называется \emph{левым смежным классом элемента $g$ по подгруппе $H$}. Аналогично с \emph{правым смежным классом}.
+\end{definition}
+
+\begin{theorem}\label{th:comclasses}
+  Пусть $a, b \in G, H \subgr G$. Тогда, следующие утверждения эквивалентны:
+  \begin{enumerate}
+    \item $aH \intxn bH \neq \O$
+    \item $aH=bH$
+    \item $b^{-1} a \in H$
+    \item $a \in bH$
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{enumerate}[leftmargin=10ex]
+    \item [2 \rightarrow\ 4] $a=ae \in aH = bH$
+    \item [4 \rightarrow\ 1] $a \in bH$, но $a \in bH$
+    \item [1 \rightarrow\ 3] $1 \thus \E{h_1, h_2\in H}\suchthat ah_1=bh_2\thus b^{-1} a=h_2h_1^{-1}\in H$
+    \item [3 \rightarrow\ 2] $aH=bb^{-1} aH=bH$
+  \end{enumerate}
+\end{proof}
+
+\begin{denotation}
+  $\factorgr{G}{H}$ --- множество левых смежных классов по подгруппе $H$. $\rfactorgr{G}{H}$ --- множество правых смежных классов по подгруппе H.
+\end{denotation}
+
+\begin{corollary}[Теорема Лагранжа]
+  \theoremlistshack
+  \begin{itemize}
+    \item Подгруппа $H$ разбивает $G$ на классы эквивалентности. Например, класс эквивалентности $b$ --- $bH$. Обозначается $a\sim_Hb$.
+    \item $\abs{H}=\abs{aH}$
+    \item $\abs{G}=\abs{H}\abs{\factorgr{G}{H}}=\abs{H}\abs{\rfactorgr{G}{H}}$
+    \item $G$ --- конечная, $\thus \abs{G}\divby\abs{H}$
+    \item $g\in G \thus \abs{G}\divby\ord g$
+  \end{itemize}
+\end{corollary}
+\begin{corollary}[Теорема Эйлера + Малая теорема Ферма]
+
+\end{corollary}
+\begin{theorem}
+  $H\subgr G \thus \abs{\factorgr{G}{H}}=\abs{\rfactorgr{G}{H}}$
+\end{theorem}
+\begin{proof}
+  Легко построить биекцию $aH \mapsto (aH)^{-1}=H^{-1} a^{-1}=Ha^{-1}$
+\end{proof}
+\begin{remark}
+  В этом доказательстве нельзя использовать отображение $aH \mapsto Ha$. Оно может оказаться некорректно определенным. Например, $aH=bH$, но при этом $Ha\neq Hb$.
+\end{remark}
+\begin{definition}
+  \emph{Индексом} подгруппы $H$ в группе $G$ называется \[\abs{G:H}\eqdef\abs{\factorgr{G}{H}}=\abs{\rfactorgr{G}{H}}\]
+\end{definition}
+
+\subsection{Нормальные подгруппы}
+\begin{definition}
+  Пусть $H\subgr G$. $H$ --- \emph{нормальная подгруппа}, если $\A{g\in G} gH=Hg$. Обозначается $H\normsubgr G$.
+\end{definition}
+\begin{remark}
+  Если $H$ - подгруппа в $G$, то:
+  \begin{enumerate}
+    \item $gH=Hg\iff gHg^{-1}=H$
+    \item $X\sse H \thus gX\sse gH$
+    \item $\A{g\in G} gHg^{-1}\sse H \thus H\normsubgr G$ \label{rem:normsubgr3}
+    \item $X\sse G, H\normsubgr G \thus XH=HX$
+  \end{enumerate}
+\end{remark}
+\begin{examples}
+  \theoremlistshack
+  \begin{itemize}
+    \item $S_n \rnormsubgr A_n$ --- подгруппа четных перестановок
+    \item $GL_n(F) \rnormsubgr SL_n(F)$
+    \item $\aqty{(12)}\ntriangleleft S_3$
+  \end{itemize}
+\end{examples}
+
+\begin{theorem}
+  Пусть $H_1, H_2 \normsubgr G$. Тогда, $H_1\intxn H_2 \normsubgr G$
+\end{theorem}
+\begin{proof}
+  $h\in H_1\intxn H_2, g\in G \thus g^{-1} hg\in H_1 \land g^{-1} hg\in H_2$
+\end{proof}
+
+\begin{theorem}
+  Пусть $H\normsubgr G$
+  \begin{enumerate}
+    \item Если $K \subgr G$, то $HK \subgr G$
+    \item Если $K \normsubgr G$, то $HK \normsubgr G$
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{enumerate}
+    \item \begin{itemize}
+            \item $HK\cdot HK=HH\cdot KK=HK\thus HK\cdot HK \sse HK$
+            \item $\qty(HK)^{-1}=K^{-1} H^{-1}=KH=HK\sse HK$
+          \end{itemize}
+    \item $\A{g\in G} gHKg^{-1}=g^{-1} Hgg^{-1} Kg=HK$
+  \end{enumerate}
+\end{proof}
+\begin{remark}
+  Если $K\ntriangleleft G$, то $HK$ - не обязательно является подгруппой $G$. Например, в $S_3$ можно рассмотреть в качестве $H$ и $K$ $\aqty{(1\ 2)}$ и $\aqty{(1\ 3)}$.
+\end{remark}
+\begin{theorem}
+  $H\subgr G, \abs{G:H}=2 \thus H\normsubgr G$
+\end{theorem}
+\begin{proof}
+  $H$ - точно один из двух левых и один из двух правых смежных классов (образован например, от элемента $e$). Любой элемент из $H$ имеет левый и правый смежный класс также $H$. Все остальные элементы, при умножении на $H$ попадают во второй смежный класс. То есть, $\A{g\in G} gH=Hg$
+\end{proof}
+
+\subsection{Сопряжение}
+\begin{definition}
+  Элементы $g_1, g_2$ группы $G$ называются \emph{сопряженными}, если $\E{h\in G}\suchthat g_2=hg_1h^{-1}$
+\end{definition}
+
+\begin{definition}
+  \sloppy \emph{Классом сопряженности} элемента $g\in G$ называется $\Cl g\eqdef \set{hgh^{-1}}{h\in G}$
+\end{definition}
+
+Легко видеть, что отношение сопряженности является отношением эквивалентности и разбивает группу на классы эквивалентности --- классы сопряженности.
+
+\begin{theorem}
+  Пусть $H \subgr G$. Тогда $H$ - нормальная подгруппа в $G$ \iff она является объединением нескольких классов сопряженности из $G$.
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{itemize}
+    \item[\thus] $H\normsubgr G \thus \A{g \in G}(H=gHg^{-1}) \thus \A{h \in H}(\Cl h\sse H)$
+    \item[\because] \sloppy $H=\Union_{\alpha\in A}\Cl g_\alpha \thus fHf^{-1}=\Union_{\alpha\in A}f\Cl g_\alpha f^{-1}=\Union_{\alpha\in A}\Cl g_\alpha=H$
+  \end{itemize}
+\end{proof}
+
+\begin{theorem}
+  Пусть $g, h \in G$. Тогда $\Cl g \cdotp\Cl h$ --- объединение классов сопряженности.
+\end{theorem}
+
+\begin{example}
+  Легко заметить, что классами сопряженности в группе $S_n$ являются перестановки с одинаковой цикловой структурой.
+\end{example}
+
+\subsection{Гомоморфизмы групп}
+\begin{definition}
+  Отображение \func{\phi}{G}{H} группы $G$ в группу $H$ называется \emph{гомоморфизмом}, если оно сохраняет умножение: $\A{a,b \in G} \phi(ab)=\phi(a)\phi(b)$
+\end{definition}
+
+\begin{definition}
+  \emph{Образ гомоморфизма} --- $\im\phi\eqdef\phi(G)$
+\end{definition}
+
+\begin{definition}
+  \emph{Ядро гомоморфизма} --- $\ker\phi=\phi^{-1}(e)\eqdef\set{g\in G}{\phi(g)=e}$
+\end{definition}
+
+\begin{theorem}
+  Пусть \phi --- гомоморфизм. Тогда, $\phi(e)=e,\ \phi(g^{-1})=\phi(g)^{-1}$.
+\end{theorem}
+
+\begin{examples}
+  \theoremlistshack
+  \begin{itemize}
+    \item \func{\phi}{G}{H},\ $\phi(g)=e$
+    \item \func{\phi}{\Z}{\Z_n},\ $\phi(k)=k+n\Z$
+    \item \func{\sgn}{S_n}{\{\pm 1, \cdot\}}, т.\:к. $\sgn(\sigma\tau)=\sgn(\sigma)\sgn(\tau)$
+    \item \func{\det}{GL_n(F)}{F^*}, т.\:к. $\det(AB)=\det(A)\det(B)$
+  \end{itemize}
+\end{examples}
+
+\begin{theorem}
+  Пусть \func{\phi}{G}{H} --- гомоморфизм групп. Тогда, $\im\phi\subgr H, \ker\phi\normsubgr G$.
+\end{theorem}
+\begin{proof}
+  Доказывается простой проверкой.
+\end{proof}
+
+\begin{remark}
+  Если $K\subgr G$, то ограничение \func{\phi|_K}{K}{H} - гомоморфизм, и для него верна предыдущая теорема.
+\end{remark}
+
+\begin{definition}
+  Гомоморфизм называется \emph{эпиморфизмом}, если он сюрьективен (покрывает всю группу в которую отображает), и \emph{мономорфизмом}, если он инъективен (разные элементы переводятся в разные).
+\end{definition}
+
+\begin{theorem}
+  Гомоморфизм --- мономорфизм \iff $\ker\phi=\{e\}$
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{itemize}
+    \item[\thus] $\phi(e)=e$. Т.\:к. \phi --- инъективно, то других элементов переходящих в $e$ нет.
+    \item[\because] Допустим это не так, и $\phi(g_1)=\phi(g_2)$. Но тогда $\phi(g_1g_2^{-1})=e$, причем $g_1g_2^{-1}\neq e$
+  \end{itemize}
+\end{proof}
+
+\subsection{Фактор-группы}
+\begin{definition}
+  Пусть $G$ --- группа, $H\normsubgr G$. Введем на \factorgr{G}{H} умножение:\\
+  $K_1\cdot K_2 \eqdef g_1Hg_2H=(g_1g_2)H$. Тогда $\{\factorgr{G}{H}, \cdot\}$ является группой и называется \emph{фактор-группой}.
+\end{definition}
+\begin{proof}[Корректность]
+  \theoremlistshack
+  \begin{enumerate}
+    \item $(aHbH)cH=abcH=aH(bHcH)$
+    \item $\E{e(\eqdef H)}\suchthat aHH=aH$
+    \item $\A{aH} \E{a^{-1} H}(aHa^{-1} H=H)$
+  \end{enumerate}
+\end{proof}
+
+\begin{definition}
+  Пусть $H\normsubgr G$. Тогда отображение \func{\pi}{G}{\factorgr{G}{H}}, $\pi(g)\eqdef gH$ называется \emph{каноническим эпиморфизмом}
+\end{definition}
+
+\begin{theorem} \label{th:canepi1}
+  Пусть $H\normsubgr G$. Тогда отображение $\pi(g)$ --- эпиморфизм, и $\ker \pi=H$.
+\end{theorem}
+\begin{proof}
+  Очевидно.
+\end{proof}
+
+\begin{theorem}[Основная теорема о гомоморфизмах]\label{th:mainhom}
+  Пусть \func{\phi}{G}{H} --- гомоморфизм. Тогда $\factorgr{G}{\ker\phi}\isomorph \im\phi$
+  \begin{samepage}
+    \begin{flushright}
+      {\small\itshape%
+        Гомоморфный образ группы,\nopagebreak\\%
+        Будь во имя коммунизма,\nopagebreak\\%
+        Изоморфен фактор-группе\nopagebreak\\%
+        По ядру гомоморфизма!}
+    \end{flushright}
+  \end{samepage}
+\end{theorem}
+\begin{proof}
+  Обозначим $K\eqdef\ker\phi\normsubgr G$. Построим изоморфизм $\func{\theta}{\factorgr{G}{K}}{\im\phi},\ \theta(gK)\eqdef\phi(g)$.\\
+  Покажем, что он корректно определен, т.\:е. если $g_1K=g_2K$, то $\phi(g_1)=\phi(g_2)$. Действительно, $\phi(g_1)=\phi(g_1K)=\phi(g_2K)=\phi(g_2)$. Тогда, очевидно что $\theta(g)$ --- эпиморфизм. \\
+  Докажем, что он мономорфизм, т.\:е. если $g\not\in K\thus \theta(gK)=\phi(g)\not=e$, что очевидно.
+\end{proof}
+\begin{remark}
+  Можно заметить, что следующая диаграмма коммутативна, т.\:е. $\phi(g)=\theta(\pi(g))$:
+  \begin{center}
+    \centering
+    \begin{tikzpicture}
+      \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+      { G & H \\
+        \factorgr{G}{\ker\phi}  \\};
+      \path[-stealth]
+      (m-1-1) edge node [left] {\pi} (m-2-1)
+      edge node [above] {\phi} (m-1-2)
+      (m-2-1) edge node [above] {\theta} (m-1-2);
+    \end{tikzpicture}
+  \end{center}
+\end{remark}
+
+\begin{theorem}[Первая теорема об изоморфизмах]
+  Пусть $H\normsubgr G, K\subgr G$. Тогда
+  \begin{enumerate}
+    \item $H\intxn K\normsubgr G$
+    \item $\factorgr{HK}{H}\isomorph \factorgr{K}{H\intxn K}$
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  Рассмотрим канонический эпиморфизм \func{\phi}{HK}{\factorgr{HK}{H}} (Он существует т.\:к. $H\normsubgr HK$).\\
+  Тогда, $\im(HK)=\factorgr{HK}{H}=\phi(HK)=\phi(H)\phi(K)=\phi(K)$ (см. \ref{th:canepi1}). Рассмотрим $\psi\eqdef \phi|_K$. $\im\psi=\factorgr{HK}{H},\ \ker\psi=K\intxn\ker\phi=K\intxn H$. Тогда, по \ref{th:mainhom}\ $\factorgr{HK}{H}\isomorph \factorgr{K}{K\intxn H}$.
+\end{proof}
+\begin{remark}
+  Этот изоморфизм имеет вид $kH\mapsto k(K\intxn H)$.
+\end{remark}
+
+\begin{example}
+  Рассмотрим в качестве $G=S_4,\ K=S_3\subgr S_4$. В качестве $H$ возьмем четверную группу Клейна: $H=V_4\eqdef\qty{\Id, (1 2)(3 4), (1 3)(2 4), (1 4)(2 3)}\normsubgr S_4$\\
+  Тогда, $H\intxn K= V_4\intxn S_3=\{\Id\}$ (Т.\:к. $S_3$ всегда оставляет последный элемент на месте) $\thus\factorgr{K}{H\intxn K}=S_3$.\\
+  Далее, если $h_1,h_2\in H,\ k_1,k_2\in K$ и $h_1k_1=h_2k_2$, то $h_2^{-1} h_1=k_2k_1^{-1}$. Но $h_2^{-1} h_1\in H,\ k_2k_1^{-1}\in K$, а они пересекаются только по $e\thus h_2^{-1} h_1=k_2k_1^{-1}=e\thus h_2=h_1 \land k_2=k_1$. Значит, все произведения вида $hk$ различны $\thus \abs{HK}=\abs{H}\abs{K}=4\x6=24$. Но в $G=S_4$ всего 24 элемента, т.\:е. $HK=G$.\\
+  Таким образом, $\factorgr{S_4}{V_4}=S_3$
+\end{example}
+
+{
+\renewcommand*{\factorgr}[2]{%
+  \ifstrempty{#2}%
+  {\ensuremath{\overline{#1}}}%
+  {\ensuremath{\nicefrac{#1}{#2}}}}
+\newcommand{\ffgr}[2]{\factorgr{\factorgr{#1}{}}{\factorgr{#2}{}}}
+\begin{theorem}[Вторая теорема об изоморфизмах, теорема о соответствии]
+  Пусть $H\normsubgr G, H\subgr K\subgr G$. Обозначим $\factorgr{X}{}\eqdef \factorgr{X}{H}$. Тогда,
+  \begin{enumerate}
+    \item $\factorgr{K}{}\subgr \factorgr{G}{}$
+    \item Cоответствие $K\mapsto \factorgr{K}{}$ из \set{K}{H\subgr K\subgr G} в множество подгрупп \factorgr{G}{} является биекцией.
+    \item $K\normsubgr G \iff \factorgr{K}{}\normsubgr\factorgr{G}{}$
+    \item $K\normsubgr G \thus \factorgr{G}{K}\isomorph\ffgr{G}{K}$
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  \theoremlistshack
+  \begin{enumerate}
+    \item $\factorgr{K}{}\sse\factorgr{G}{}$. А т.\:к. обе являются группами, то и $\factorgr{K}{}\subgr \factorgr{G}{}$.
+    \item Рассмотрим канонический эпиморфизм \func{\pi}{G}{\factorgr{G}{}}, но будем иметь его ввиду не только на элементах $G$, но и на его подмножествах, и покажем его биективность на группах типа $K$.
+          \begin{itemize}
+            \item[\thus]  $k\in K,\ \pi^{-1}\qty(\pi\qty(k))=\set{k_0}{kH=k_0H}$. Но $kH\sse K\thus k_0\in K\thus \pi^{-1}\qty(\pi\qty(k))\sse K\thus \pi^{-1}\qty(\pi\qty(K))=K\thus \pi$ --- инъекция
+            \item[\because] Пусть $S\subgr \factorgr{G}{}$. Нужно показать, что $\pi^{-1}(S)\suchthat H\subgr \pi^{-1}(S)\subgr G$. Для этого достаточно показать, что  $\pi^{-1}(S)$ --- группа, поскольку она точно подножество $G$ и надмножество $H$.\\
+                  $k_1, k_2\in \pi^{-1}(S)\thus k_1k_2\in \pi^{-1}(S)$, поскольку $k_1k_2H=k_1Hk_2H\in S$.
+          \end{itemize}
+    \item
+          \begin{itemize}
+            \item[\thus]  Используя \ref{rem:normsubgr3}: \\
+                  $\A{gH\in\factorgr{G}{}}\A{kH\in \factorgr{K}{}}(gHkH\qty(gH)^{-1}=gkg^{-1} H\in\factorgr{K}{})$
+                  $\thus \factorgr{K}{}\normsubgr \factorgr{G}{}$
+          \end{itemize}
+    \item Пусть $\factorgr{K}{}\normsubgr \factorgr{G}{}$. Рассмотрим канонический эпиморфизм \func{\theta}{\factorgr{G}{}}{\ffgr{G}{K}}. Тогда $\func{\theta\circ\pi }{G}{\ffgr{G}{K}}$ --- также эпиморфизм. $\ker\theta=\factorgr{K}{}$, Учитывая пункт 2, $\set{g}{\pi(g)\in \factorgr{K}{}}=K$. Значит, $\ker\theta\circ\pi=K$. По \ref{th:canepi1} $\ffgr{G}{K}\isomorph\factorgr{G}{K}$. Отсюда также следует, что $K\normsubgr G$.
+  \end{enumerate}
+\end{proof}
+}
+
+\begin{example}
+  Пусть $n,k\in \N, n\divby k$. Тогда, $n\Z\normsubgr k\Z\normsubgr\Z\thus \factorgr{\Z_n}{k\Z_n}\isomorph \Z_k$
+\end{example}
+
+\subsection{Действие группы на множестве}
+\begin{definition}\label{def:grsetact1}
+  \emph{Действие группы на множестве \Omega} --- некоторое \func{отображение}{G\x \Omega}{\Omega}, $\qty(g, \omega)\mapsto g\cdot\omega=g(\omega)$, удовлетворяющее:
+  \begin{enumerate}
+    \item $\A{g_1, g_2 \in G, \omega\in \Omega}(g_1g_2)(\omega)=g_1(g_2(\omega))$
+    \item $\A{\omega \in \Omega} e(\omega)=\omega$
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Альтернативное]\label{def:grsetact2}
+  Пусть $\permset(\Omega)$ --- группа всех перестановок \Omega\ (\func{Биекций}{\Omega}{\Omega}). Тогда, действие группы $G$ на множество \Omega --- это гомоморфизм \func{I}{G}{\permset(\Omega)}
+\end{definition}
+
+\begin{theorem}
+  Определения \ref{def:grsetact1} и \ref{def:grsetact2} эквивалентны.
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{itemize}[leftmargin=16ex]
+    \item[\ref{def:grsetact1} \rightarrow\ \ref{def:grsetact2}] $\A{g\in G}$ Определим отображение \func{I_g}{\Omega}{\Omega}, $I_g(\omega)\eqdef g\cdot\omega$. Покажем, что $I_g$ --- биекция\\
+          $I_{g^{-1}}\qty(I_g(\omega))=g^{-1}(g(\omega))=\omega\thus  (I_g(\omega_1)=I_g(\omega_2)\thus I_{g^{-1}}(I_g(\omega_1))=I_{g^{-1}}(I_g(\omega_2))=\omega_1=\omega_2)$\\
+          Таким образом, осталось показать, что $I(g)\eqdef I_g$ --- гомоморфизм, т.\:е. $I(g_1g_2)=I_{g_1}I_{g_2}$. $\A{\omega} I(g_1g_2)(\omega)=I_{g_1g_2}(\omega)=(g_1g_2)(\omega)=g_1(g_2(\omega))=I_{g_1}I_{g_2}(\omega)$
+    \item[\ref{def:grsetact1} \leftarrow\ \ref{def:grsetact2}] Аналогично
+  \end{itemize}
+\end{proof}
+
+\begin{definition}
+  \emph{Ядро действия} --- ядро гомоморфизма $I$.
+\end{definition}
+
+\begin{definition}
+  Действие называется \emph{эффективным} или \emph{точным}, если оно --- мономорфизм.
+\end{definition}
+
+\begin{definition}
+  \sloppy Действие называется \emph{свободным}, если у любого элемента группы (кроме единичного) нет неподвижных точек, т.\:е. $\A{g\in G}\A{\omega\in \Omega}(e\neq g\imply g\omega\neq \omega)$
+\end{definition}
+
+\begin{definition}
+
+\end{definition}
+
+\begin{examples}
+  \theoremlistshack
+  \begin{enumerate}
+    \item Группа $GL_n(F)$ действует на пространство столбцов $F^n$ --- эффективно и несвободно
+    \item Группа Диэдра $D_n$ действует на:
+          \begin{enumerate}
+            \item Все точки $\R^2$
+            \item Вершины n-угольника
+            \item Стороны n-угольника
+            \item Диагонали n-угольника, и\:т.\:д.
+          \end{enumerate}
+  \end{enumerate}
+\end{examples}
+
+\begin{definition}
+  Пусть группа $G$ действует на множество \Omega. \emph{Орбитой} элемента $\omega\in \Omega$ называется $G\qty(\omega)\eqdef\set{g(\omega)}{g\in G}$
+\end{definition}
+
+\begin{definition}
+  Два элементы из множества \Omega называются эквивалентными относительно (действия) группы $G$, если один из них лежит в орбите другого.
+\end{definition}
+
+\begin{theorem}
+  Принадлежность одного элемента множества к орбите другого является отношением эквивалентности.
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{itemize}[leftmargin=22ex, align=left, labelwidth=20ex]
+    \item[Рефлексивность] $\omega_1\in G(\omega_1) \because \omega_1=e(\omega_1)$
+    \item[Симметричность] $\omega_1\in G(\omega_2) \thus \omega_1=g(\omega_2)\thus g^{-1}(\omega_1)=\omega_2\thus \omega_2\in G(\omega_1)$
+    \item[Транзитивность] $\omega_1\in G(\omega_2), \omega_2\in G(\omega_3)\thus \omega_2=g(\omega_3), \omega_1=h(\omega_2)\thus \omega_1=(gh)(\omega_3)$
+  \end{itemize}
+\end{proof}
+
+\begin{denotation}
+  Таким образом, орбита является классом эквивалентности. Множество орбит обозначается \factorgr{\Omega}{G}.
+\end{denotation}
+
+\begin{definition}
+  \emph{Стабилизатором} или \emph{стационарной группой} для элемента $\omega\in\Omega$ называется $\Stab \omega \eqdef\set{g\in G}{g(\omega)=\omega}$
+\end{definition}
+
+\begin{theorem}
+  $\Stab \omega \subgr G$
+\end{theorem}
+\begin{proof}
+  \theoremlistshack
+  \begin{itemize}[leftmargin=22ex, align=left, labelwidth=20ex]
+    \item [Замкнутость] $g_1,g_2\in \Stab\omega\thus (g_1g_2)(\omega)=g_1(g_2(\omega))=\omega\thus g_1g_2\in \Stab\omega$
+    \item [Обратный элемент] $g(\omega)=\omega\thus g^{-1}(\omega)=g^{-1}(g(\omega))=(g^{-1} g)(\omega)=e(\omega)=\omega$
+  \end{itemize}
+\end{proof}
+
+\begin{example}
+  Группа $O_n$ действует на $\R^n$. Орбита элемента $x\in \R_n$ --- это все элементы из $\R^n$ не меняющие длину, то есть сфера с радиусом равным длине $x$: $O_n(x)=\set{y\in \R_n}{\norm{x}=\norm{y}}$.\\
+  Также, $\Stab x$ --- ортогональные преобразования ортогонального дополнения линейной оболочки $\aqty{x}\ort$, поскольку они оставляют $x$ на месте. $\Stab x\isomorph O_{n-1}$, если $x\neq0$
+\end{example}
+
+\begin{theorem}
+  Пусть группа $G$ действуюет на множество \Omega. $\omega'=h\omega$, т.\:е. $\omega'\in G(\Omega)$. Тогда, $\set{g\in G}{\omega'=g\omega}=h\Stab\omega=\Stab\omega' h$
+\end{theorem}
+\begin{proof}
+  Очевидно.
+\end{proof}
+
+\begin{theorem}
+  $\abs{G(\omega)}=\abs{G:\Stab{\omega}}\underset{\abs{G}<\infty}{=}\frac{\abs{G}}{\abs{\Stab{\omega}}}$
+\end{theorem}
+\begin{proof}
+  $\A{\omega'\in G(\omega)}\E{h\in G}\suchthat \omega'=h\omega\thus \omega'\mapsto h\Stab{\omega}$. Ясно, что это биекция.
+\end{proof}
+
+\begin{corollary}[Формула орбит]
+  Пусть группа $G$ действует на множество $\Omega=\Omega_1\union\dots\union\Omega_k$, где $\Omega_i$ --- орбиты действия. Пусть также $\omega_i\in \Omega_i$, тогда
+  \[\abs{\Omega}=\sum_{i=1}^k{\abs{G:\Stab{\omega_i}}}\]
+\end{corollary}
+
+\begin{definition}
+  Действие называется \emph{транзитивным}, если у него одна орбита.
+\end{definition}
+
+\subsection{Примеры действия групп}
+\subsubsection{Действие левыми сдвигами на себя}
+$\Omega=G, g(\omega)\eqdef g\cdot\omega$. У этого действия одна орбита и тривиальное ядро, т.\:е. оно транзитивно и точно. Легко доказать теорему следущую теорему:
+\begin{theorem}[Теорема Кэли]\label{th:cayley}
+  Пусть $G$ --- группа. Тогда, в $\permset(G)$ есть подгруппа $H\isomorph G$.
+\end{theorem}
+\begin{proof}
+  Применяя \ref{th:mainhom} к \func{I}{G}{\permset(G)}, получается $G\isomorph \im{I}\subgr \permset(G)$.
+\end{proof}
+
+\subsubsection{Действие левыми сдвигами на смежные классы}
+Пусть $H\subgr G$. Тогда $G$ действует левыми сдвигами на $\Omega=\factorgr{G}{H}$. Орбита также одна ($=\factorgr{G}{H}$). Стабилизатор $\Stab{xH}=\set{g\in G}{gxH=xH}$. По теореме \ref{th:comclasses} $gxH=xH\iff gx\in xH \iff g\in xHx^{-1}$. Тогда,
+\[\ker{I}=\Intxn_{x\in G}{\Stab{xH}}=\Intxn_{x\in G}{xHx^{-1}}\]
+\begin{theorem}
+  Пусть $H\subgr G$, $\func{I}{G}{\permset(\factorgr{G}{H})}$ --- гомоморфизм. Тогда, $\ker{I}$ --- наибольшая по включению подгруппа в $H$, которая нормальна в $G$.
+\end{theorem}
+\begin{proof}
+  $\ker{I}\normsubgr G$ как ядро гомоморфизма. Также, оно является подмножеством $H$, т.\:к. $\ker{I}=\Intxn_{x\in G\setminus H}{xHx^{-1}}\Intxn_{x\in H}{xHx^{-1}}$.
+
+  Пусть $K\normsubgr G, K\subgr H$. Тогда, $\A{x\in G}(K=xKx^{-1}\subgr xHx^{-1}) \thus K\subgr \Intxn_{x\in G}{xHx^{-1}}=\ker{I}$
+\end{proof}
+
+Аналогичное действие правыми сдвигами определяется как $g(\omega)=\omega g^{-1}$
+\subsubsection{Действие сопряжением на себя}
+$\Omega=G, g(\omega)=g\omega g^{-1}$. Легко проверить, что $I(g)I(h)=I(gh)$. Орбита $G(\omega)=\Cl\omega$
+
+
+\begin{theorem}[Лемма Бернсайда]
+  Пусть конечная группа $G$ действует на множество $\Omega$ транзитивно.
+  Обозначим мощность множества неподвижных точек элемента $g$ как $N(g)\eqdef\abs{\set{\omega\in\Omega}{g(\omega)=\omega}}$. Тогда, $\sum_{g\in G}{N(g)} =\abs{G}$
+\end{theorem}

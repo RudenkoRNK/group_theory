@@ -1,0 +1,30 @@
+\newpage
+\section{Справка}
+\subsection{Перестановки}
+\begin{definition}
+  \emph{Циклом} называется перестановка, которая часть (неупорядоченных) элементов переставляет циклически, а остальные оставляет на месте.
+\end{definition}
+
+\begin{definition}
+  Циклы называются \emph{независимыми} если они не содержат общих элементов, на которые они нетривиально действуют.
+\end{definition}
+
+\begin{theorem}
+  Любую перестановку можно представить в виде композиции независимых циклов.
+\end{theorem}
+
+\begin{definition}
+  Цикл называется \emph{транспозицией}, если он переставляет всего два элемента.
+\end{definition}
+
+\begin{definition}
+  \emph{Четностью перестановки} $\sgn\sigma$ называется четность числа беспорядков $N(\sigma)$:\\
+  \[N(\sigma)\equiv \left|\left\{\left(i,j\right)\colon i<j \land \sigma(i)>\sigma(j)\right\}\right|\]
+\end{definition}
+
+\begin{theorem}\
+  \begin{enumerate}
+    \item Четность числа транспозиций в которую раскладывается перестановка является инвариантом перестановки и равна четности перестановки.
+    \item $\sgn\sigma\tau=\sgn\sigma\sgn\tau$
+  \end{enumerate}
+\end{theorem}
