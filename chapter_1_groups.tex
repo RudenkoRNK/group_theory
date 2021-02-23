@@ -261,7 +261,7 @@
 \end{definition}
 
 \begin{definition}
-  \emph{Образ гомоморфизма} --- $\im\phi\eqdef\phi(G)$
+  \emph{Образ гомоморфизма} --- $\imag\phi\eqdef\phi(G)$
 \end{definition}
 
 \begin{definition}
@@ -283,7 +283,7 @@
 \end{examples}
 
 \begin{theorem}
-  Пусть \func{\phi}{G}{H} --- гомоморфизм групп. Тогда, $\im\phi\subgr H, \ker\phi\normsubgr G$.
+  Пусть \func{\phi}{G}{H} --- гомоморфизм групп. Тогда, $\imag\phi\subgr H, \ker\phi\normsubgr G$.
 \end{theorem}
 \begin{proof}
   Доказывается простой проверкой.
@@ -334,7 +334,7 @@
 \end{proof}
 
 \begin{theorem}[Основная теорема о гомоморфизмах]\label{th:mainhom}
-  Пусть \func{\phi}{G}{H} --- гомоморфизм. Тогда $\factorgr{G}{\ker\phi}\isomorph \im\phi$
+  Пусть \func{\phi}{G}{H} --- гомоморфизм. Тогда $\factorgr{G}{\ker\phi}\isomorph \imag\phi$
   \begin{samepage}
     \begin{flushright}
       {\small\itshape%
@@ -346,7 +346,7 @@
   \end{samepage}
 \end{theorem}
 \begin{proof}
-  Обозначим $K\eqdef\ker\phi\normsubgr G$. Построим изоморфизм $\func{\theta}{\factorgr{G}{K}}{\im\phi},\ \theta(gK)\eqdef\phi(g)$.\\
+  Обозначим $K\eqdef\ker\phi\normsubgr G$. Построим изоморфизм $\func{\theta}{\factorgr{G}{K}}{\imag\phi},\ \theta(gK)\eqdef\phi(g)$.\\
   Покажем, что он корректно определен, т.\:е. если $g_1K=g_2K$, то $\phi(g_1)=\phi(g_2)$. Действительно, $\phi(g_1)=\phi(g_1K)=\phi(g_2K)=\phi(g_2)$. Тогда, очевидно что $\theta(g)$ --- эпиморфизм. \\
   Докажем, что он мономорфизм, т.\:е. если $g\not\in K\thus \theta(gK)=\phi(g)\not=e$, что очевидно.
 \end{proof}
@@ -375,7 +375,7 @@
 \end{theorem}
 \begin{proof}
   Рассмотрим канонический эпиморфизм \func{\phi}{HK}{\factorgr{HK}{H}} (Он существует т.\:к. $H\normsubgr HK$).\\
-  Тогда, $\im(HK)=\factorgr{HK}{H}=\phi(HK)=\phi(H)\phi(K)=\phi(K)$ (см. \ref{th:canepi1}). Рассмотрим $\psi\eqdef \phi|_K$. $\im\psi=\factorgr{HK}{H},\ \ker\psi=K\intxn\ker\phi=K\intxn H$. Тогда, по \ref{th:mainhom}\ $\factorgr{HK}{H}\isomorph \factorgr{K}{K\intxn H}$.
+  Тогда, $\imag(HK)=\factorgr{HK}{H}=\phi(HK)=\phi(H)\phi(K)=\phi(K)$ (см. \ref{th:canepi1}). Рассмотрим $\psi\eqdef \phi|_K$. $\imag\psi=\factorgr{HK}{H},\ \ker\psi=K\intxn\ker\phi=K\intxn H$. Тогда, по \ref{th:mainhom}\ $\factorgr{HK}{H}\isomorph \factorgr{K}{K\intxn H}$.
 \end{proof}
 \begin{remark}
   Этот изоморфизм имеет вид $kH\mapsto k(K\intxn H)$.
@@ -559,7 +559,7 @@ $\Omega=G, g(\omega)\eqdef g\cdot\omega$. У этого действия одн�
   Пусть $G$ --- группа. Тогда, в $\permset(G)$ есть подгруппа $H\isomorph G$.
 \end{theorem}
 \begin{proof}
-  Применяя \ref{th:mainhom} к \func{I}{G}{\permset(G)}, получается $G\isomorph \im{I}\subgr \permset(G)$.
+  Применяя \ref{th:mainhom} к \func{I}{G}{\permset(G)}, получается $G\isomorph \imag{I}\subgr \permset(G)$.
 \end{proof}
 
 \subsubsection{Действие левыми сдвигами на смежные классы}
