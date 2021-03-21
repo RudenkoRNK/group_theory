@@ -16,14 +16,14 @@
   \begin{enumerate}
     \item $\E{!e}$
     \item $\A{a}\E{!a^{-1}}$
-    \item $ab=ac \thus b=c$
+    \item $ab=ac \implies b=c$
   \end{enumerate}
 \end{theorem}
 \begin{proof}
   \theoremlistshack
   \begin{enumerate}
     \item $e_1=e_1e_2=e_2$
-    \item $aa^{-1}_1=aa^{-1}_2 \thus a^{-1}_1aa^{-1}_1=a^{-1}_1aa^{-1}_2\thus a^{-1}_1=a^{-1}_2$
+    \item $aa^{-1}_1=aa^{-1}_2 \implies a^{-1}_1aa^{-1}_1=a^{-1}_1aa^{-1}_2\implies a^{-1}_1=a^{-1}_2$
   \end{enumerate}
 \end{proof}
 
@@ -69,7 +69,7 @@
 
 
 \begin{definition}
-  Пусть $G$ --- группа, $A,B\sse G, a\in B$. Тогда,
+  Пусть $G$ --- группа, $A,B\subseteq G, a\in B$. Тогда,
   \begin{align*}
     AB     & \eqdef \set{ab}{a\in A, b \in B} \\
     aB     & \eqdef \set{ab}{b \in B}         \\
@@ -77,7 +77,7 @@
   \end{align*}
 \end{definition}
 
-Можно заметить, что если $H\sse G$, то $H$ --- подгруппа, если $HH\sse H$ и $H^{-1}\sse H$
+Можно заметить, что если $H\subseteq G$, то $H$ --- подгруппа, если $HH\subseteq H$ и $H^{-1}\subseteq H$
 
 \begin{definition}
   Группы $G$ и $H$ называются \emph{изоморфными}, если между их элементами существует биекция \func{\phi}{G}{H}, такая что $\A{a,b \in G} \phi(ab)=\phi(a)\phi(b)$
@@ -91,8 +91,8 @@
 \end{proof}
 
 \begin{definition}
-  \emph{Подгруппой, порожденной подмножеством $M\sse G$} называется пересечение всех подгрупп группы $G$, которые содержат это множество:
-  \[\aqty{M}\eqdef \Intxn_{\substack{H\subgr G \\ M\sse H}}H\]
+  \emph{Подгруппой, порожденной подмножеством $M\subseteq G$} называется пересечение всех подгрупп группы $G$, которые содержат это множество:
+  \[\aqty{M}\eqdef \Intxn_{\substack{H\subgr G \\ M\subseteq H}}H\]
 \end{definition}
 
 \begin{theorem}
@@ -123,7 +123,7 @@
 \begin{theorem}\label{th:comclasses}
   Пусть $a, b \in G, H \subgr G$. Тогда, следующие утверждения эквивалентны:
   \begin{enumerate}
-    \item $aH \intxn bH \neq \O$
+    \item $aH \intxn bH \neq \emptyset$
     \item $aH=bH$
     \item $b^{-1} a \in H$
     \item $a \in bH$
@@ -134,7 +134,7 @@
   \begin{enumerate}[leftmargin=10ex]
     \item [2 \rightarrow\ 4] $a=ae \in aH = bH$
     \item [4 \rightarrow\ 1] $a \in bH$, но $a \in bH$
-    \item [1 \rightarrow\ 3] $1 \thus \E{h_1, h_2\in H}\suchthat ah_1=bh_2\thus b^{-1} a=h_2h_1^{-1}\in H$
+    \item [1 \rightarrow\ 3] $1 \implies \E{h_1, h_2\in H}\suchthat ah_1=bh_2\implies b^{-1} a=h_2h_1^{-1}\in H$
     \item [3 \rightarrow\ 2] $aH=bb^{-1} aH=bH$
   \end{enumerate}
 \end{proof}
@@ -149,15 +149,15 @@
     \item Подгруппа $H$ разбивает $G$ на классы эквивалентности. Например, класс эквивалентности $b$ --- $bH$. Обозначается $a\sim_Hb$.
     \item $\abs{H}=\abs{aH}$
     \item $\abs{G}=\abs{H}\abs{\factorgr{G}{H}}=\abs{H}\abs{\rfactorgr{G}{H}}$
-    \item $G$ --- конечная, $\thus \abs{G}\divby\abs{H}$
-    \item $g\in G \thus \abs{G}\divby\ord g$
+    \item $G$ --- конечная, $\implies \abs{G}\divby\abs{H}$
+    \item $g\in G \implies \abs{G}\divby\ord g$
   \end{itemize}
 \end{corollary}
 \begin{corollary}[Теорема Эйлера + Малая теорема Ферма]
 
 \end{corollary}
 \begin{theorem}
-  $H\subgr G \thus \abs{\factorgr{G}{H}}=\abs{\rfactorgr{G}{H}}$
+  $H\subgr G \implies \abs{\factorgr{G}{H}}=\abs{\rfactorgr{G}{H}}$
 \end{theorem}
 \begin{proof}
   Легко построить биекцию $aH \mapsto (aH)^{-1}=H^{-1} a^{-1}=Ha^{-1}$
@@ -177,9 +177,9 @@
   Если $H$ - подгруппа в $G$, то:
   \begin{enumerate}
     \item $gH=Hg\iff gHg^{-1}=H$
-    \item $X\sse H \thus gX\sse gH$
-    \item $\A{g\in G} gHg^{-1}\sse H \thus H\normsubgr G$ \label{rem:normsubgr3}
-    \item $X\sse G, H\normsubgr G \thus XH=HX$
+    \item $X\subseteq H \implies gX\subseteq gH$
+    \item $\A{g\in G} gHg^{-1}\subseteq H \implies H\normsubgr G$ \label{rem:normsubgr3}
+    \item $X\subseteq G, H\normsubgr G \implies XH=HX$
   \end{enumerate}
 \end{remark}
 \begin{examples}
@@ -195,7 +195,7 @@
   Пусть $H_1, H_2 \normsubgr G$. Тогда, $H_1\intxn H_2 \normsubgr G$
 \end{theorem}
 \begin{proof}
-  $h\in H_1\intxn H_2, g\in G \thus g^{-1} hg\in H_1 \land g^{-1} hg\in H_2$
+  $h\in H_1\intxn H_2, g\in G \implies g^{-1} hg\in H_1 \land g^{-1} hg\in H_2$
 \end{proof}
 
 \begin{theorem}
@@ -209,8 +209,8 @@
   \theoremlistshack
   \begin{enumerate}
     \item \begin{itemize}
-            \item $HK\cdot HK=HH\cdot KK=HK\thus HK\cdot HK \sse HK$
-            \item $\qty(HK)^{-1}=K^{-1} H^{-1}=KH=HK\sse HK$
+            \item $HK\cdot HK=HH\cdot KK=HK\implies HK\cdot HK \subseteq HK$
+            \item $\qty(HK)^{-1}=K^{-1} H^{-1}=KH=HK\subseteq HK$
           \end{itemize}
     \item $\A{g\in G} gHKg^{-1}=g^{-1} Hgg^{-1} Kg=HK$
   \end{enumerate}
@@ -219,7 +219,7 @@
   Если $K\ntriangleleft G$, то $HK$ - не обязательно является подгруппой $G$. Например, в $S_3$ можно рассмотреть в качестве $H$ и $K$ $\aqty{(1\ 2)}$ и $\aqty{(1\ 3)}$.
 \end{remark}
 \begin{theorem}
-  $H\subgr G, \abs{G:H}=2 \thus H\normsubgr G$
+  $H\subgr G, \abs{G:H}=2 \implies H\normsubgr G$
 \end{theorem}
 \begin{proof}
   $H$ - точно один из двух левых и один из двух правых смежных классов (образован например, от элемента $e$). Любой элемент из $H$ имеет левый и правый смежный класс также $H$. Все остальные элементы, при умножении на $H$ попадают во второй смежный класс. То есть, $\A{g\in G} gH=Hg$
@@ -242,8 +242,8 @@
 \begin{proof}
   \theoremlistshack
   \begin{itemize}
-    \item[\thus] $H\normsubgr G \thus \A{g \in G}(H=gHg^{-1}) \thus \A{h \in H}(\Cl h\sse H)$
-    \item[\because] \sloppy $H=\Union_{\alpha\in A}\Cl g_\alpha \thus fHf^{-1}=\Union_{\alpha\in A}f\Cl g_\alpha f^{-1}=\Union_{\alpha\in A}\Cl g_\alpha=H$
+    \item[\implies] $H\normsubgr G \implies \A{g \in G}(H=gHg^{-1}) \implies \A{h \in H}(\Cl h\subseteq H)$
+    \item[\impliedby] \sloppy $H=\Union_{\alpha\in A}\Cl g_\alpha \implies fHf^{-1}=\Union_{\alpha\in A}f\Cl g_\alpha f^{-1}=\Union_{\alpha\in A}\Cl g_\alpha=H$
   \end{itemize}
 \end{proof}
 
@@ -303,8 +303,8 @@
 \begin{proof}
   \theoremlistshack
   \begin{itemize}
-    \item[\thus] $\phi(e)=e$. Т.\:к. \phi --- инъективно, то других элементов переходящих в $e$ нет.
-    \item[\because] Допустим это не так, и $\phi(g_1)=\phi(g_2)$. Но тогда $\phi(g_1g_2^{-1})=e$, причем $g_1g_2^{-1}\neq e$
+    \item[\implies] $\phi(e)=e$. Т.\:к. \phi --- инъективно, то других элементов переходящих в $e$ нет.
+    \item[\impliedby] Допустим это не так, и $\phi(g_1)=\phi(g_2)$. Но тогда $\phi(g_1g_2^{-1})=e$, причем $g_1g_2^{-1}\neq e$
   \end{itemize}
 \end{proof}
 
@@ -348,7 +348,7 @@
 \begin{proof}
   Обозначим $K\eqdef\ker\phi\normsubgr G$. Построим изоморфизм $\func{\theta}{\factorgr{G}{K}}{\imag\phi},\ \theta(gK)\eqdef\phi(g)$.\\
   Покажем, что он корректно определен, т.\:е. если $g_1K=g_2K$, то $\phi(g_1)=\phi(g_2)$. Действительно, $\phi(g_1)=\phi(g_1K)=\phi(g_2K)=\phi(g_2)$. Тогда, очевидно что $\theta(g)$ --- эпиморфизм. \\
-  Докажем, что он мономорфизм, т.\:е. если $g\not\in K\thus \theta(gK)=\phi(g)\not=e$, что очевидно.
+  Докажем, что он мономорфизм, т.\:е. если $g\not\in K\implies \theta(gK)=\phi(g)\not=e$, что очевидно.
 \end{proof}
 \begin{remark}
   Можно заметить, что следующая диаграмма коммутативна, т.\:е. $\phi(g)=\theta(\pi(g))$:
@@ -383,8 +383,8 @@
 
 \begin{example}
   Рассмотрим в качестве $G=S_4,\ K=S_3\subgr S_4$. В качестве $H$ возьмем четверную группу Клейна: $H=V_4\eqdef\qty{\Id, (1 2)(3 4), (1 3)(2 4), (1 4)(2 3)}\normsubgr S_4$\\
-  Тогда, $H\intxn K= V_4\intxn S_3=\{\Id\}$ (Т.\:к. $S_3$ всегда оставляет последный элемент на месте) $\thus\factorgr{K}{H\intxn K}=S_3$.\\
-  Далее, если $h_1,h_2\in H,\ k_1,k_2\in K$ и $h_1k_1=h_2k_2$, то $h_2^{-1} h_1=k_2k_1^{-1}$. Но $h_2^{-1} h_1\in H,\ k_2k_1^{-1}\in K$, а они пересекаются только по $e\thus h_2^{-1} h_1=k_2k_1^{-1}=e\thus h_2=h_1 \land k_2=k_1$. Значит, все произведения вида $hk$ различны $\thus \abs{HK}=\abs{H}\abs{K}=4\x6=24$. Но в $G=S_4$ всего 24 элемента, т.\:е. $HK=G$.\\
+  Тогда, $H\intxn K= V_4\intxn S_3=\{\Id\}$ (Т.\:к. $S_3$ всегда оставляет последный элемент на месте) $\implies\factorgr{K}{H\intxn K}=S_3$.\\
+  Далее, если $h_1,h_2\in H,\ k_1,k_2\in K$ и $h_1k_1=h_2k_2$, то $h_2^{-1} h_1=k_2k_1^{-1}$. Но $h_2^{-1} h_1\in H,\ k_2k_1^{-1}\in K$, а они пересекаются только по $e\implies h_2^{-1} h_1=k_2k_1^{-1}=e\implies h_2=h_1 \land k_2=k_1$. Значит, все произведения вида $hk$ различны $\implies \abs{HK}=\abs{H}\abs{K}=4\x6=24$. Но в $G=S_4$ всего 24 элемента, т.\:е. $HK=G$.\\
   Таким образом, $\factorgr{S_4}{V_4}=S_3$
 \end{example}
 
@@ -400,25 +400,25 @@
     \item $\factorgr{K}{}\subgr \factorgr{G}{}$
     \item Cоответствие $K\mapsto \factorgr{K}{}$ из \set{K}{H\subgr K\subgr G} в множество подгрупп \factorgr{G}{} является биекцией.
     \item $K\normsubgr G \iff \factorgr{K}{}\normsubgr\factorgr{G}{}$
-    \item $K\normsubgr G \thus \factorgr{G}{K}\isomorph\ffgr{G}{K}$
+    \item $K\normsubgr G \implies \factorgr{G}{K}\isomorph\ffgr{G}{K}$
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
   \theoremlistshack
   \begin{enumerate}
-    \item $\factorgr{K}{}\sse\factorgr{G}{}$. А т.\:к. обе являются группами, то и $\factorgr{K}{}\subgr \factorgr{G}{}$.
+    \item $\factorgr{K}{}\subseteq\factorgr{G}{}$. А т.\:к. обе являются группами, то и $\factorgr{K}{}\subgr \factorgr{G}{}$.
     \item Рассмотрим канонический эпиморфизм \func{\pi}{G}{\factorgr{G}{}}, но будем иметь его ввиду не только на элементах $G$, но и на его подмножествах, и покажем его биективность на группах типа $K$.
           \begin{itemize}
-            \item[\thus]  $k\in K,\ \pi^{-1}\qty(\pi\qty(k))=\set{k_0}{kH=k_0H}$. Но $kH\sse K\thus k_0\in K\thus \pi^{-1}\qty(\pi\qty(k))\sse K\thus \pi^{-1}\qty(\pi\qty(K))=K\thus \pi$ --- инъекция
-            \item[\because] Пусть $S\subgr \factorgr{G}{}$. Нужно показать, что $\pi^{-1}(S)\suchthat H\subgr \pi^{-1}(S)\subgr G$. Для этого достаточно показать, что  $\pi^{-1}(S)$ --- группа, поскольку она точно подножество $G$ и надмножество $H$.\\
-                  $k_1, k_2\in \pi^{-1}(S)\thus k_1k_2\in \pi^{-1}(S)$, поскольку $k_1k_2H=k_1Hk_2H\in S$.
+            \item[\implies]  $k\in K,\ \pi^{-1}\qty(\pi\qty(k))=\set{k_0}{kH=k_0H}$. Но $kH\subseteq K\implies k_0\in K\implies \pi^{-1}\qty(\pi\qty(k))\subseteq K\implies \pi^{-1}\qty(\pi\qty(K))=K\implies \pi$ --- инъекция
+            \item[\impliedby] Пусть $S\subgr \factorgr{G}{}$. Нужно показать, что $\pi^{-1}(S)\suchthat H\subgr \pi^{-1}(S)\subgr G$. Для этого достаточно показать, что  $\pi^{-1}(S)$ --- группа, поскольку она точно подножество $G$ и надмножество $H$.\\
+                  $k_1, k_2\in \pi^{-1}(S)\implies k_1k_2\in \pi^{-1}(S)$, поскольку $k_1k_2H=k_1Hk_2H\in S$.
           \end{itemize}
     \item
           \begin{itemize}
-            \item[\thus]  Используя \ref{rem:normsubgr3}: \\
+            \item[\implies]  Используя \ref{rem:normsubgr3}: \\
                   $\A{gH\in\factorgr{G}{}}\A{kH\in \factorgr{K}{}}(gHkH\qty(gH)^{-1}=gkg^{-1} H\in\factorgr{K}{})$
-                  $\thus \factorgr{K}{}\normsubgr \factorgr{G}{}$
+                  $\implies \factorgr{K}{}\normsubgr \factorgr{G}{}$
           \end{itemize}
     \item Пусть $\factorgr{K}{}\normsubgr \factorgr{G}{}$. Рассмотрим канонический эпиморфизм \func{\theta}{\factorgr{G}{}}{\ffgr{G}{K}}. Тогда $\func{\theta\circ\pi }{G}{\ffgr{G}{K}}$ --- также эпиморфизм. $\ker\theta=\factorgr{K}{}$, Учитывая пункт 2, $\set{g}{\pi(g)\in \factorgr{K}{}}=K$. Значит, $\ker\theta\circ\pi=K$. По \ref{th:canepi1} $\ffgr{G}{K}\isomorph\factorgr{G}{K}$. Отсюда также следует, что $K\normsubgr G$.
   \end{enumerate}
@@ -426,7 +426,7 @@
 }
 
 \begin{example}
-  Пусть $n,k\in \N, n\divby k$. Тогда, $n\Z\normsubgr k\Z\normsubgr\Z\thus \factorgr{\Z_n}{k\Z_n}\isomorph \Z_k$
+  Пусть $n,k\in \N, n\divby k$. Тогда, $n\Z\normsubgr k\Z\normsubgr\Z\implies \factorgr{\Z_n}{k\Z_n}\isomorph \Z_k$
 \end{example}
 
 \subsection{Действие группы на множестве}
@@ -449,7 +449,7 @@
   \theoremlistshack
   \begin{itemize}[leftmargin=16ex]
     \item[\ref{def:grsetact1} \rightarrow\ \ref{def:grsetact2}] $\A{g\in G}$ Определим отображение \func{I_g}{\Omega}{\Omega}, $I_g(\omega)\eqdef g\cdot\omega$. Покажем, что $I_g$ --- биекция\\
-          $I_{g^{-1}}\qty(I_g(\omega))=g^{-1}(g(\omega))=\omega\thus  (I_g(\omega_1)=I_g(\omega_2)\thus I_{g^{-1}}(I_g(\omega_1))=I_{g^{-1}}(I_g(\omega_2))=\omega_1=\omega_2)$\\
+          $I_{g^{-1}}\qty(I_g(\omega))=g^{-1}(g(\omega))=\omega\implies  (I_g(\omega_1)=I_g(\omega_2)\implies I_{g^{-1}}(I_g(\omega_1))=I_{g^{-1}}(I_g(\omega_2))=\omega_1=\omega_2)$\\
           Таким образом, осталось показать, что $I(g)\eqdef I_g$ --- гомоморфизм, т.\:е. $I(g_1g_2)=I_{g_1}I_{g_2}$. $\A{\omega} I(g_1g_2)(\omega)=I_{g_1g_2}(\omega)=(g_1g_2)(\omega)=g_1(g_2(\omega))=I_{g_1}I_{g_2}(\omega)$
     \item[\ref{def:grsetact1} \leftarrow\ \ref{def:grsetact2}] Аналогично
   \end{itemize}
@@ -499,9 +499,9 @@
 \begin{proof}
   \theoremlistshack
   \begin{itemize}[leftmargin=22ex, align=left, labelwidth=20ex]
-    \item[Рефлексивность] $\omega_1\in G(\omega_1) \because \omega_1=e(\omega_1)$
-    \item[Симметричность] $\omega_1\in G(\omega_2) \thus \omega_1=g(\omega_2)\thus g^{-1}(\omega_1)=\omega_2\thus \omega_2\in G(\omega_1)$
-    \item[Транзитивность] $\omega_1\in G(\omega_2), \omega_2\in G(\omega_3)\thus \omega_2=g(\omega_3), \omega_1=h(\omega_2)\thus \omega_1=(gh)(\omega_3)$
+    \item[Рефлексивность] $\omega_1\in G(\omega_1) \impliedby \omega_1=e(\omega_1)$
+    \item[Симметричность] $\omega_1\in G(\omega_2) \implies \omega_1=g(\omega_2)\implies g^{-1}(\omega_1)=\omega_2\implies \omega_2\in G(\omega_1)$
+    \item[Транзитивность] $\omega_1\in G(\omega_2), \omega_2\in G(\omega_3)\implies \omega_2=g(\omega_3), \omega_1=h(\omega_2)\implies \omega_1=(gh)(\omega_3)$
   \end{itemize}
 \end{proof}
 
@@ -519,8 +519,8 @@
 \begin{proof}
   \theoremlistshack
   \begin{itemize}[leftmargin=22ex, align=left, labelwidth=20ex]
-    \item [Замкнутость] $g_1,g_2\in \Stab\omega\thus (g_1g_2)(\omega)=g_1(g_2(\omega))=\omega\thus g_1g_2\in \Stab\omega$
-    \item [Обратный элемент] $g(\omega)=\omega\thus g^{-1}(\omega)=g^{-1}(g(\omega))=(g^{-1} g)(\omega)=e(\omega)=\omega$
+    \item [Замкнутость] $g_1,g_2\in \Stab\omega\implies (g_1g_2)(\omega)=g_1(g_2(\omega))=\omega\implies g_1g_2\in \Stab\omega$
+    \item [Обратный элемент] $g(\omega)=\omega\implies g^{-1}(\omega)=g^{-1}(g(\omega))=(g^{-1} g)(\omega)=e(\omega)=\omega$
   \end{itemize}
 \end{proof}
 
@@ -540,7 +540,7 @@
   $\abs{G(\omega)}=\abs{G:\Stab{\omega}}\underset{\abs{G}<\infty}{=}\frac{\abs{G}}{\abs{\Stab{\omega}}}$
 \end{theorem}
 \begin{proof}
-  $\A{\omega'\in G(\omega)}\E{h\in G}\suchthat \omega'=h\omega\thus \omega'\mapsto h\Stab{\omega}$. Ясно, что это биекция.
+  $\A{\omega'\in G(\omega)}\E{h\in G}\suchthat \omega'=h\omega\implies \omega'\mapsto h\Stab{\omega}$. Ясно, что это биекция.
 \end{proof}
 
 \begin{corollary}[Формула орбит]
@@ -571,7 +571,7 @@ $\Omega=G, g(\omega)\eqdef g\cdot\omega$. У этого действия одн�
 \begin{proof}
   $\ker{I}\normsubgr G$ как ядро гомоморфизма. Также, оно является подмножеством $H$, т.\:к. $\ker{I}=\Intxn_{x\in G\setminus H}{xHx^{-1}}\Intxn_{x\in H}{xHx^{-1}}$.
 
-  Пусть $K\normsubgr G, K\subgr H$. Тогда, $\A{x\in G}(K=xKx^{-1}\subgr xHx^{-1}) \thus K\subgr \Intxn_{x\in G}{xHx^{-1}}=\ker{I}$
+  Пусть $K\normsubgr G, K\subgr H$. Тогда, $\A{x\in G}(K=xKx^{-1}\subgr xHx^{-1}) \implies K\subgr \Intxn_{x\in G}{xHx^{-1}}=\ker{I}$
 \end{proof}
 
 Аналогичное действие правыми сдвигами определяется как $g(\omega)=\omega g^{-1}$
