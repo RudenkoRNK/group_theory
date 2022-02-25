@@ -1,0 +1,61 @@
+name: LaTeX workflow
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:
+  build_drawio:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Install packages
+      run: |
+        sudo apt-get install msttcorefonts
+        sudo apt install xvfb
+        wget https://github.com/jgraph/drawio-desktop/releases/download/v14.6.13/drawio-amd64-14.6.13.deb
+        sudo apt install ./drawio*.deb
+        pip3 install lxml
+    - name: Compile images
+      run: python3 compile_images.py
+    - name: Upload images
+      uses: actions/upload-artifact@v2
+      with:
+        if-no-files-found: ignore
+        name: images
+        path: build/
+
+  build:
+    needs: build_drawio
+    runs-on: ubuntu-latest
+    # See https://github.com/xu-cheng/latex-docker
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
+      options: --workdir /home/latex
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Install more fonts
+      run: |
+        apk --no-cache add msttcorefonts-installer fontconfig
+        update-ms-fonts
+        fc-cache -f
+        mktextfm larm1000
+        mktextfm larm1200
+    - name: Download images
+      uses: actions/download-artifact@v2
+      with:
+        name: images
+        path: build
+    - name: Compile LaTeX document
+      run: latexmk -interaction=nonstopmode -f
+    - name: Upload a build artifact
+      uses: actions/upload-artifact@v2
+      if: ${{ always() }}
+      with:
+        if-no-files-found: ignore
+        name: output
+        path: build/main.pdf
