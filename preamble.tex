@@ -371,16 +371,3 @@
 \newtheorem*{remark}{Замечание}
 \newtheorem*{solution}{Решение}
 
-
-\newcommand*\@proofenvname{proof}
-\newcommand*{\theoremlistshack}{%
-    \leavevmode
-    \ifx\@currenvir\@proofenvname
-    \else
-        \vspace{-\baselineskip}
-    \fi
-    \par%
-    \everypar{\setbox\z@\lastbox\everypar{}}%
-}
-
-\makeatother
