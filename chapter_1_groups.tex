@@ -11,7 +11,7 @@
 \end{definition}
 
 \begin{theorem}
-  \theoremlistshack
+  \leavevmode\vspace{-1.4em}
   \begin{enumerate}
     \item $\E{!e}$
     \item $\A{a}\E{!a^{-1}}$
@@ -19,7 +19,7 @@
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{enumerate}
     \item $e_1=e_1e_2=e_2$
     \item $aa^{-1}_1=aa^{-1}_2 \implies a^{-1}_1aa^{-1}_1=a^{-1}_1aa^{-1}_2\implies a^{-1}_1=a^{-1}_2$
@@ -103,7 +103,7 @@
 \end{definition}
 
 \begin{theorem}
-  \theoremlistshack
+  \leavevmode\vspace{-1.4em}
   \begin{enumerate}
     \item Циклическая группа изоморфна \Z, либо $\Z_n$
     \item Подгруппа циклической группы --- циклическая
@@ -129,7 +129,7 @@
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{enumerate}[leftmargin=10ex]
     \item [2 \rightarrow\ 4] $a=ae \in aH = bH$
     \item [4 \rightarrow\ 1] $a \in bH$, но $a \in bH$
@@ -143,7 +143,7 @@
 \end{denotation}
 
 \begin{corollary}[Теорема Лагранжа]
-  \theoremlistshack
+  \leavevmode\vspace{-1.4em}
   \begin{itemize}
     \item Подгруппа $H$ разбивает $G$ на классы эквивалентности. Например, класс эквивалентности $b$ --- $bH$. Обозначается $a\sim_Hb$.
     \item $\abs{H}=\abs{aH}$
@@ -182,7 +182,7 @@
   \end{enumerate}
 \end{remark}
 \begin{examples}
-  \theoremlistshack
+  \leavevmode\vspace{-1.4em}
   \begin{itemize}
     \item $S_n \rnormsubgr A_n$ --- подгруппа четных перестановок
     \item $GL_n(F) \rnormsubgr SL_n(F)$
@@ -205,7 +205,7 @@
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{enumerate}
     \item \begin{itemize}
             \item $HK\cdot HK=HH\cdot KK=HK\implies HK\cdot HK \subseteq HK$
@@ -239,7 +239,7 @@
   Пусть $H \subgr G$. Тогда $H$ - нормальная подгруппа в $G$ \iff она является объединением нескольких классов сопряженности из $G$.
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{itemize}
     \item[\implies] $H\normsubgr G \implies \A{g \in G}(H=gHg^{-1}) \implies \A{h \in H}(\Cl h\subseteq H)$
     \item[\impliedby] \sloppy $H=\Union_{\alpha\in A}\Cl g_\alpha \implies fHf^{-1}=\Union_{\alpha\in A}f\Cl g_\alpha f^{-1}=\Union_{\alpha\in A}\Cl g_\alpha=H$
@@ -272,7 +272,7 @@
 \end{theorem}
 
 \begin{examples}
-  \theoremlistshack
+  \leavevmode\vspace{-1.4em}
   \begin{itemize}
     \item \func{\phi}{G}{H},\ $\phi(g)=e$
     \item \func{\phi}{\Z}{\Z_n},\ $\phi(k)=k+n\Z$
@@ -300,7 +300,7 @@
   Гомоморфизм --- мономорфизм \iff $\ker\phi=\{e\}$
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{itemize}
     \item[\implies] $\phi(e)=e$. Т.\:к. \phi --- инъективно, то других элементов переходящих в $e$ нет.
     \item[\impliedby] Допустим это не так, и $\phi(g_1)=\phi(g_2)$. Но тогда $\phi(g_1g_2^{-1})=e$, причем $g_1g_2^{-1}\neq e$
@@ -313,7 +313,7 @@
   $K_1\cdot K_2 \eqdef g_1Hg_2H=(g_1g_2)H$. Тогда $\{\factorgr{G}{H}, \cdot\}$ является группой и называется \emph{фактор-группой}.
 \end{definition}
 \begin{proof}[Корректность]
-  \theoremlistshack
+  \leavevmode
   \begin{enumerate}
     \item $(aHbH)cH=abcH=aH(bHcH)$
     \item $\E{e(\eqdef H)}\suchthat aHH=aH$
@@ -404,7 +404,7 @@
 \end{theorem}
 
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{enumerate}
     \item $\factorgr{K}{}\subseteq\factorgr{G}{}$. А т.\:к. обе являются группами, то и $\factorgr{K}{}\subgr \factorgr{G}{}$.
     \item Рассмотрим канонический эпиморфизм \func{\pi}{G}{\factorgr{G}{}}, но будем иметь его ввиду не только на элементах $G$, но и на его подмножествах, и покажем его биективность на группах типа $K$.
@@ -445,7 +445,7 @@
   Определения \ref{def:grsetact1} и \ref{def:grsetact2} эквивалентны.
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{itemize}[leftmargin=16ex]
     \item[\ref{def:grsetact1} \rightarrow\ \ref{def:grsetact2}] $\A{g\in G}$ Определим отображение \func{I_g}{\Omega}{\Omega}, $I_g(\omega)\eqdef g\cdot\omega$. Покажем, что $I_g$ --- биекция\\
           $I_{g^{-1}}\qty(I_g(\omega))=g^{-1}(g(\omega))=\omega\implies  (I_g(\omega_1)=I_g(\omega_2)\implies I_{g^{-1}}(I_g(\omega_1))=I_{g^{-1}}(I_g(\omega_2))=\omega_1=\omega_2)$\\
@@ -471,7 +471,7 @@
 \end{definition}
 
 \begin{examples}
-  \theoremlistshack
+  \leavevmode\vspace{-1.4em}
   \begin{enumerate}
     \item Группа $GL_n(F)$ действует на пространство столбцов $F^n$ --- эффективно и несвободно
     \item Группа Диэдра $D_n$ действует на:
@@ -496,7 +496,7 @@
   Принадлежность одного элемента множества к орбите другого является отношением эквивалентности.
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{itemize}[leftmargin=22ex, align=left, labelwidth=20ex]
     \item[Рефлексивность] $\omega_1\in G(\omega_1) \impliedby \omega_1=e(\omega_1)$
     \item[Симметричность] $\omega_1\in G(\omega_2) \implies \omega_1=g(\omega_2)\implies g^{-1}(\omega_1)=\omega_2\implies \omega_2\in G(\omega_1)$
@@ -516,7 +516,7 @@
   $\Stab \omega \subgr G$
 \end{theorem}
 \begin{proof}
-  \theoremlistshack
+  \leavevmode
   \begin{itemize}[leftmargin=22ex, align=left, labelwidth=20ex]
     \item [Замкнутость] $g_1,g_2\in \Stab\omega\implies (g_1g_2)(\omega)=g_1(g_2(\omega))=\omega\implies g_1g_2\in \Stab\omega$
     \item [Обратный элемент] $g(\omega)=\omega\implies g^{-1}(\omega)=g^{-1}(g(\omega))=(g^{-1} g)(\omega)=e(\omega)=\omega$
