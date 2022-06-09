@@ -7,7 +7,7 @@
 ## Build
 ### Option 1: Use docker container with all required packages installed:
 ```bash
-DOCKER_TARGET=main make in_docker
+make in_docker TARGET=main
 ```
 
 ### Option 2: Use docker container interactively:
