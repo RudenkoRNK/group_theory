@@ -12,7 +12,7 @@ make in_docker TARGET=main
 
 ### Option 2: Use docker container interactively:
 ```bash
-make group_theory_container
+make container
 docker attach group_theory_container
 make main
 ```
